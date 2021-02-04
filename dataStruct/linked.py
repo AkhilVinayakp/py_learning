@@ -12,6 +12,7 @@ class MyLinkedList:
         Initialize your data structure here.
         """
         self.head = None
+        self.size =  0
         
         
 
@@ -27,7 +28,6 @@ class MyLinkedList:
             while(self.head):
                 if i == index:
                     return tmp.val
-                    break
                 else:
                     tmp = tmp.next
                     i += 1
@@ -43,6 +43,7 @@ class MyLinkedList:
         else:
             t.next = self.head
             self.head = t
+        self.size +=1
         
 
     def addAtTail(self, val: int) -> None:
@@ -61,7 +62,7 @@ class MyLinkedList:
                     break
                 else:
                     continue
-
+        self.size += 1
             
             
         
@@ -70,13 +71,42 @@ class MyLinkedList:
         """
         Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
         """
+    
+        t = Node(val)
+        current = self.head
+        i = 0
+        while(current):
+            if i == index:
+                t.next = current.next
+                current.next = t
+                return None
+            else:
+                i = i + 1
+
+
+
         
 
     def deleteAtIndex(self, index: int) -> None:
         """
         Delete the index-th node in the linked list, if the index is valid.
         """
-        
+        current =  self.head
+        if index == 1:
+            self.head = current.next
+            return None
+        i = 1 # tracking the index
+        current = current.next
+        while(current):
+            if index-1 == i:
+                next = current.next
+                if next != None:
+                    current.next = next.next
+                else:
+                    current.next = None
+            else:
+                i = i + 1
+                current = current.next
 
 
 # Your MyLinkedList object will be instantiated and called as such:
