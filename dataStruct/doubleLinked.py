@@ -50,7 +50,13 @@ class _Double_linked:
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    
+    parser.add_argument('-d','--debug',
+    default=True,
+    help='debugging enabled by default pass False to disable.')
+    arg = parser.parse_args()
+    if arg.debug == False:
+        logging.disable(logging.CRITICAL)
+    logging.debug('debugging enabled......')
 
 
         
