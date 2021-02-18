@@ -1,6 +1,8 @@
 '''
 Linked list implimentation
 '''
+import logging
+logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
 
 class emptyException(Exception):
     pass
@@ -159,6 +161,7 @@ class LinkedList:
             count += 1
         return value
     def from_list(self, values:List)-> None:
+        logging.debug(f"creating from list")
         if self.head is not None:
             print("Linked list should be empty try append_list")
             return
@@ -174,7 +177,12 @@ class LinkedList:
         l = []
         while cur:
             l.append(cur.value)
-    
+            logging.debug(f'adding value {cur.value}')
+            cur = cur.next
+        logging.debug(f'end of while {l}')
+        self.head = None
+        l = l[::-1]
+        logging.debug(f"reversed {l}")
         self.from_list(l)
         
 
