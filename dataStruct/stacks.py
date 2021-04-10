@@ -55,8 +55,9 @@ class Stack:
         for i in items:
             print(f'[{i}]')
 
-# testing
-s = Stack()
+# testing script for Stack
+
+s = Stack(limit=3)
 s.push(1)
 s.push(2)
 s.push(3)
@@ -66,5 +67,33 @@ s.show()
 s.show(reverse=True)
     
 
-        
+# implimenting Dynamic stack
+# overcome overflow by using the approch repeated doubling : when the array is full we create a new array with
+# the size double of the original array and copy all the elemets to the new array
 
+class DynamicStack(Stack):
+    '''  '''
+    def __init__(self, limit: int) -> None:
+        super().__init__(limit=limit)
+    def push(self, item: int) -> None:
+        if self.length >= self.limit:
+            self.resize()
+        return super().push(item)
+    def resize(self):
+        # crating a new space for the new list
+        self.stk = list(self.stk)
+        # doubling the limit 
+        self.limit = 2 * self.limit
+
+        
+# tesing for dyanmic stack
+s = DynamicStack(limit=3)
+s.push(1)
+s.push(2)
+s.push(3)
+s.push(4)
+s.push(5)
+s.show()
+s.show(reverse=True)
+
+#TODO implimentation using linked list
