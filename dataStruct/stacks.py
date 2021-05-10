@@ -17,9 +17,14 @@ class UnderflowException(Exception):
     def __init__(self, message) -> None:
         super().__init__(message)
 
+# exception raied when a stack contains non numeric values. used in Max property
+class NotaNumberException(Exception):
+    def __init__(self, message: str) -> None:
+        super().__init__(message)
+
 class Stack:
     '''
-    contains the impimentation of stack and it's basic functionalities 
+    contains the implimentation of stack and it's basic functionalities 
     v : 1.0
     '''
     def __init__(self, limit:int = 10) -> None:
@@ -32,6 +37,15 @@ class Stack:
     @property
     def length(self)->int:
         return len(self.stk)
+    # implimenting max property that will return the max element in the stack
+    @property
+    def Max(self)->int:
+        max = -222222222222222222222222222222222
+        for i in self.stk:
+            if i > max:
+                max = i
+        return max
+
     def push(self, item:int)-> None:
         ''' method that push values to a stack'''
         if self.length >= self.limit:
@@ -57,13 +71,14 @@ class Stack:
 
 # testing script for Stack
 
-s = Stack(limit=3)
+s = Stack(limit=13)
 s.push(1)
 s.push(2)
-s.push(3)
+s.push(43)
 s.push(4)
 s.push(5)
 s.show()
+print(s.Max)
 s.show(reverse=True)
     
 
