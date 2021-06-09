@@ -10,8 +10,8 @@
 #
 #
 #
-import collection
-import time
+import collections
+# import time
 
 class Queue:
 	""" class implementaion of queue using python list
@@ -37,6 +37,10 @@ class Queue:
 	def size(self):
 		return len(self._data)
 
+	def show_queue(self):
+		for i in self._data:
+			print(i, end = '\t')
+
 
 class Queue_Col:
 	def __init__(self):
@@ -48,8 +52,27 @@ class Queue_Col:
 	@property
 	def length(self):
 		return len(self._data)
+	def show_queue(self):
+		for i in self._data:
+			print(i, end = '\t')
 
 
 
 	
 		
+# testing 
+if __name__ == "__main___":
+	print("hha")
+	q = Queue()
+	q.enqueue(12)
+	q.enqueue(34)
+	q.enqueue(64)
+	q.show_queue()
+	q.dequeue()
+	q.dequeue()
+
+	print("using queue implimented using collection.dequeue")
+	e = Queue_Col()
+	e.enqueue(32)
+	e.enqueue(324)
+	e.show_queue()
