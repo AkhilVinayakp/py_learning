@@ -42,3 +42,39 @@ print(grep_search.stdout)
 
 
 # %%
+# using subprocess.Popen
+import subprocess
+command = 'dir'
+process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, error = process.communicate()
+if(process.returncode != 0):
+    print("getting error in executing the code")
+    print(error)
+    exit()
+print("output :", out.decode())
+
+
+
+# %%
+# using multiple commands
+# command : pip freeze | grep pandas
+import subprocess
+from subprocess import SubprocessError, CalledProcessError, TimeoutExpired
+try:
+    pip_operation = subprocess.Popen('pip freeze', er)
+    out, error = pip_operation.communicate(timeout=14)
+except TimeoutExpired as e:
+    print("time expired")
+except CalledProcessError as e:
+    print('Error in executing the command')
+    print(error.decode())
+except SubprocessError as e:
+    # more generalized error caption.
+    print("Error,")
+    print(e)
+    
+except Exception as e:
+    # to handle any error other than the subprocess.
+    print("unable to perform the operation: ", e)
+if pip_operation.returncode != 0:
+    exit()
