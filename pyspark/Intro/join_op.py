@@ -32,3 +32,11 @@ print("rdd as dict:", py_dict)
 rdd_temp = rdd1.join(rdd3)
 print("joined [no sim keys] :", rdd_temp.collect())
 # $ out: will be empty
+
+# performing right outer join
+rdd_temp = rdd1.rightOuterJoin(rdd2)
+print(f"Right outer join of rdd left {rdd1.collect()} and right {rdd2.collect()} [sim keys] :{rdd_temp.collect()}")
+
+# performing left outer join
+rdd_temp = rdd1.leftOuterJoin(rdd2)
+print(f"Left outer join of rdd left {rdd1.collect()} and right {rdd2.collect()} [sim keys] :{rdd_temp.collect()}")
