@@ -1,4 +1,4 @@
-# creating the spark context
+# creating the spark_ context
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder.appName("alpha").getOrCreate()
