@@ -20,16 +20,15 @@ s = "anagran"
 t = "nagaram"
 
 # %%
-def sol1(str1, str2):
-    ''''''
-    if len(str1) != len(str2):
+def sol1(s, t):
+    '''Brute force method.'''
+    if len(s) != len(t):
         return False
-    s1 = list(str1)
-    s2 = list(str2)
+    s1 = list(s)
+    s2 = list(t)
     for item in s1:
         if item not in s2:
             return False
-        s1.remove(item)
         s2.remove(item)
     return True
 # %%
