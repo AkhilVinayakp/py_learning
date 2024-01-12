@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "inventory-api"
+version = "0.1.0"
+description = "Sample inventory api for adding and managing products, in fast api"
+authors = ["Akhil Vinayak P <nirvanaosborn@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.109.0"
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
