@@ -41,3 +41,24 @@ if __name__ == "__main__":
 	print(r.two_pointer())
 
 
+
+# just checking the case where we have already sorted array.
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        # numbers is sorted in non-decreasing order. [2,7,11,15]
+		# for just base case.
+		if len(numbers) == 2:
+			if sum(numbers) == target:
+				return [0,1]
+			else:
+				return None
+		i = 0
+		j = len(numbers) - 1
+		while i < j:
+			if numbers[i] + numbers[j] == target:
+				return [i, j]
+			elif numbers[i] + numbers[j] < target:
+				i = i + 1
+			else:
+				j = j-1
+		
